@@ -12,7 +12,7 @@ default: &default
   username: admin
   host: localhost
   encoding: unicode
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
 
 development:
   <<: *default
