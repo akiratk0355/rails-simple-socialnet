@@ -1,0 +1,15 @@
+{
+  "name": "Heroku Test App",
+  "description": "Test app with Ruby on Rails",
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-pgbouncer"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-apt"
+    }
+  ]
+}
