@@ -73,7 +73,7 @@ GEM
     json (1.8.6)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
-    mail (2.6.5)
+    mail (2.6.6)
       mime-types (>= 1.16, < 4)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -84,7 +84,7 @@ GEM
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
     orm_adapter (0.5.0)
-    pg (0.20.0)
+    pg (0.21.0)
     rack (1.6.8)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -160,11 +160,11 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
-  devise
-  figaro
+  devise (~> 4.3.0)
+  figaro (~> 1.1.1)
   jbuilder (~> 2.0)
-  jquery-rails
-  pg
+  jquery-rails (~> 4.3.1)
+  pg (~> 0.21.0)
   rails (= 4.2.8)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
