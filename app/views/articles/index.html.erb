@@ -6,7 +6,8 @@
     <th>Text</th>
     <th colspan="2"></th>
   </tr>
- 
+
+  <%= link_to 'Create new article', new_article_path %> 
   <% @articles.each do |article| %>
     <tr>
       <td><%= article.title %></td>
@@ -16,5 +17,3 @@
     </tr>
   <% end %>
 </table>
-
-<%= link_to 'Create new article', new_article_path %>
