@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
   def new
+    @article = Article.new
   end
   def edit
   end
@@ -13,8 +14,11 @@ class ArticlesController < ApplicationController
     #render plain: params[:article].inspect
     @article = Article.new
     @article.update_attributes(article_params)
-    @article.save
-    redirect_to @article
+    if @article.save
+      redirect_to @article
+    else
+      render 'new'
+    end
   end
   def update
   end
