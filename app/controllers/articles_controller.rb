@@ -9,11 +9,12 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
   def edit
+    @article = Article.find(params[:id])
   end
   def create
     #render plain: params[:article].inspect
     @article = Article.new
-    @article.update_attributes(article_params)
+    @article.update_attributes(article_params) # skipping validation
     if @article.save
       redirect_to @article
     else
@@ -21,6 +22,13 @@ class ArticlesController < ApplicationController
     end
   end
   def update
+    @article = Article.find(params[:id])
+    
+    if @article.update(article_params) # invokes validation
+      redirect_to @article
+    else
+      render 'edit'
+    end
   end
   
   private
