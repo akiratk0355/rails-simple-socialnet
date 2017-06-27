@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   resources :organizations
   resources :users
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
   get 'welcome/index'
   root 'welcome#index'
   # You can have the root of your site routed with "root"
