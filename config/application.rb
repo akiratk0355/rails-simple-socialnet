@@ -23,6 +23,7 @@ module Testapp
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     
+    # Load custom configs from config/narnia.yml
     config.narnia = config_for(:narnia).with_indifferent_access
   end
 end

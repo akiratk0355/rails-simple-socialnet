@@ -4,4 +4,12 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+         
+  def can_admin?
+    if id == 1
+      true
+    else
+      false
+    end
+  end
 end
