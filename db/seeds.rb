@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Create admin user
+unless User.where(:email => "admin@example.com").any?
+  admin = User.new :email => "admin@example.com",
+                  :name => "ADMIN",
+                  :password => "boobooboo",
+                  :role => 'admin'
+  admin.save!
+end

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          
   def can_admin?
-    if id == 1
+    if role == "admin"
       true
     else
       false
