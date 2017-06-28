@@ -14,10 +14,9 @@ class ArticlesController < ApplicationController
   end
   def create
     #render plain: params[:article].inspect
-    @article = Article.new
-    @article.update_attributes(article_params) # skipping validation
+    @article = current_user.articles.build(article_params)
     if @article.save
-      redirect_to @article
+      redirect_to articles_path
     else
       render 'new'
     end
