@@ -5,7 +5,6 @@ class Article < ActiveRecord::Base
                       length: { minimum: 5 }
     
     def self.search(search)
-      where("title ILIKE ?", "%#{search}%") 
-      where("text ILIKE ?", "%#{search}%")
+      where("title ILIKE ? OR text ILIKE ?", "%#{search}%", "%#{search}%") 
     end
 end
