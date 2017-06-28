@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   load_and_authorize_resource
   def index
-    @articles = Article.all
+    @articles = Article.order(updated_at: :desc)
   end
   def show
     @article = Article.find(params[:id])
