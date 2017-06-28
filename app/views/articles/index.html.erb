@@ -5,6 +5,7 @@
     <th>Title</th>
     <th>Author</th>
     <th>Submitted</th>
+    <th>Comments</th>
     <th colspan="2"></th>
   </tr>
 
@@ -13,6 +14,7 @@
       <td><%= article.title %></td>
       <td><%= article.user.name %></td>
       <td><%= article.updated_at %></td>
+      <td><%= article.comments.count %></td>
       <td><%= link_to 'Show', article_path(article) %></td>
       <td><%= link_to 'Edit', edit_article_path(article) %></td>
       <td><%= link_to 'Destroy', article_path(article),
