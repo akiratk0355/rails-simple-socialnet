@@ -15,7 +15,7 @@
   <%= @article.text %>
 </p>
 
-<h2>Comments</h2>
+<h2><%= pluralize(@article.comments.count, "comment") %></h2>
 <%= render @article.comments %>
  
 <h2>Add a comment:</h2>

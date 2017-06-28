@@ -1,8 +1,15 @@
 class CommentsController < ApplicationController
+  
+  load_and_authorize_resource
+  
   def create
     @article = Article.find(params[:article_id])
-    @comment = @article.comments.create(comment_params)
-    redirect_to article_path(@article)
+    @comment = @article.comments.build(comment_params)
+    if @comment.save
+      redirect_to article_path(@article)
+    else
+      redirect_to article_path(@article), :flash => { :error => @comment.errors.full_messages.join(', ') }
+    end
   end
   
   def destroy

@@ -1,4 +1,9 @@
 <%= form_for([@article, @article.comments.build]) do |f| %>
+  <div id="error_explanation">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>">ERROR: <%= value %></div>
+    <% end %>
+  </div>
   <p>
     <%= f.label :commenter %><br>
     <%= f.text_field :commenter %>
