@@ -1,6 +1,12 @@
 <h1>Articles</h1>
 <h3>Total articles: <%= @articles.count %></h3>
 <h3>Published today: <%= @articles.where("updated_at >= ?", Time.zone.now.beginning_of_day).count %></h3>
+
+<%= form_tag(articles_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Articles" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
 <table>
   <tr>
     <th>Title</th>

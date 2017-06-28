@@ -1,8 +1,14 @@
 class ArticlesController < ApplicationController
   load_and_authorize_resource
   def index
-    @articles = Article.order(updated_at: :desc)
-    @articles = @articles.includes(:user, :comments)
+    @searched = false
+    if params[:search]
+      @searched = true
+      @articles = Article.search(params[:search])
+    else
+      @articles = Article.all
+    end
+    @articles = @articles.order(updated_at: :desc).includes(:user)
   end
   def show
     @article = Article.find(params[:id])
