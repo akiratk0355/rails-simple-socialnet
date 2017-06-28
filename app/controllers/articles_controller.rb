@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to articles_path
     else
-      render 'new'
+      redirect_to new_article_path, :flash => { :error => @article.errors.full_messages.join(', ') }
     end
   end
   
@@ -41,7 +41,7 @@ class ArticlesController < ApplicationController
     if @article.update(article_params) # invokes validation
       redirect_to @article
     else
-      render 'edit'
+      redirect_to edit_article_path, :flash => { :error => @article.errors.full_messages.join(', ') }
     end
   end
   
