@@ -36,6 +36,12 @@ class Ability
       can :manage, Article, :user_id => user.id
       can :read, Article, :published => true
       can :create, Article
+      
+      can :manage, Comment, :user_id => user.id
+      # anyone should be able to read comments of & comment on published articles
+      can [:read, :create], Comment, :article => { :published => true }
+      # the article's author should be able to delete comments as they wish
+      can :destroy, Comment, :article => { :user_id => user.id }
     end
     
   end
