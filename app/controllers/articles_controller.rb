@@ -10,7 +10,12 @@ class ArticlesController < ApplicationController
     else
       @articles = Article.all
     end
-    @articles = @articles.order(updated_at: :desc).includes(:user)
+    
+    unless current_user.can_admin?
+      @articles = @articles.where("published = true OR user_id = ?", current_user.id)
+    end
+    
+    @articles = @articles.order(published_at: :desc).includes(:user)
   end
   
   def show
