@@ -4,7 +4,7 @@
   <h3>Found <%= @articles.count %> articles</h3>
 <% else %>
   <h3>Total articles: <%= @articles.count %></h3>
-  <h3>Published today: <%= @articles.where("updated_at >= ?", Time.zone.now.beginning_of_day).count %></h3>
+  <h3>Published today: <%= @articles.where("published_at >= ?", Time.zone.now.beginning_of_day).count %></h3>
 <% end %>
 
 <%= form_tag(articles_path, :method => "get", id: "search-form") do %>
