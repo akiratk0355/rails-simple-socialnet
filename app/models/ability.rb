@@ -33,7 +33,9 @@ class Ability
     if user.can_admin?
       can :manage, :all
     else
-      can :read, :all
+      can :manage, Article, :user_id => user.id
+      can :read, Article, :published => true
+      can :create, Article
     end
     
   end
