@@ -1,24 +1,18 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-<p>
-  <strong>Article ID:</strong>
-  <%= @article.id %>
-</p>
+<h1> <%= @article.title %> </h1>
 <p>
   <strong>Author:</strong>
   <%= @article.user.name %>
 </p>
 <p>
-  <strong>Text:</strong>
   <%= @article.text %>
 </p>
 
-<h2><%= pluralize(@article.comments.count, "comment") %></h2>
+<h3><%= pluralize(@article.comments.count, "comment") %></h3>
 <%= render @article.comments %>
  
-<h2>Add a comment:</h2>
+<h3>Add a comment:</h3>
 <%= render 'comments/form' %>
 
-<%= link_to 'Edit', edit_article_path(@article) %>
+<% if can? :update, @article %>
+  <%= link_to 'Edit', edit_article_path(@article) %>
+<% end %>
