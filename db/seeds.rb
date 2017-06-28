@@ -14,3 +14,27 @@ unless User.where(:email => "admin@example.com").any?
                   :role => 'admin'
   admin.save!
 end
+
+unless User.where(:email => "alice@example.com").any?
+  admin = User.new :email => "alice@example.com",
+                  :name => "Alice",
+                  :password => "boobooboo",
+                  :role => 'user'
+  admin.save!
+end
+
+unless User.where(:email => "bob@example.com").any?
+  admin = User.new :email => "bob@example.com",
+                  :name => "Bob",
+                  :password => "boobooboo",
+                  :role => 'user'
+  admin.save!
+end
+
+unless User.where(:email => "charlie@example.com").any?
+  admin = User.new :email => "charlie@example.com",
+                  :name => "Charlie",
+                  :password => "boobooboo",
+                  :role => 'user'
+  admin.save!
+end
