@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
+  
   load_and_authorize_resource
+  
   def index
     @searched = false
     if params[:search]
@@ -10,15 +12,19 @@ class ArticlesController < ApplicationController
     end
     @articles = @articles.order(updated_at: :desc).includes(:user)
   end
+  
   def show
     @article = Article.find(params[:id])
   end
+  
   def new
     @article = Article.new
   end
+  
   def edit
     @article = Article.find(params[:id])
   end
+  
   def create
     #render plain: params[:article].inspect
     @article = current_user.articles.build(article_params)
@@ -28,6 +34,7 @@ class ArticlesController < ApplicationController
       render 'new'
     end
   end
+  
   def update
     @article = Article.find(params[:id])
     
@@ -37,6 +44,7 @@ class ArticlesController < ApplicationController
       render 'edit'
     end
   end
+  
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
