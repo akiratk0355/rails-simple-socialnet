@@ -42,15 +42,18 @@ The database consists of 3 tables: `users`, `articles`, `comments`.
 
 ### Dependencies
 - Running in Ubuntu Xenial with rbenv is strongly recommended (I didn't test in OSX at all)
-- Ruby (2.2.6), Rails (4.2), PostgreSQL (9.6)
+- Ruby (2.2.6), Rails (4.2.8), PostgreSQL (9.6)
 
 ### Set up development environment
 - Run `make` in the project root
-- Run the following command in `psql`:
+- Run the following commands in `psql` to create the postgres user/db named `socialnet_dev`:
 ```
-create role admin with createdb login password 'boobooboo';
+create role socialnet_dev with createdb login password 'boobooboo';
+create database socialnet_dev owner socialnet_dev;
 ```
-- Run `rake db:setup` to initialize database with 4 users: `admin@example.com`, `alice@example.com`, `bob@example.com`, `charlie@example.com`
+
+- Run `PGPASSWORD='boobooboo' pg_restore -v -U socialnet_dev -d socialnet_dev db/dbbackup.tar` to import sample records
+- Finally, `rails s`
 
 ### Deploy
 - `master` branch automatically gets deployed to Heroku 
@@ -63,15 +66,18 @@ create role admin with createdb login password 'boobooboo';
 ### Indexing available articles
 If Bob wants to read new articles, he can go to the index page. 
 List view automatically sorts the articles by their published dates and display how many articles have been published today and in total.
+
 Also note that `Edit` and `Delete` buttons are only displayed for Bob's own articles.
 ![index_bob](index_bob.png)
 
-As seen in the screen shot, Bob can't see Alice's unpublished articles. In fact, Alice has two unpublished draft articles in her list view. 
+As seen in the screenshot above, Bob can't see Alice's unpublished articles. In fact, Alice has created two unpublished drafts. 
+
 Let's see how the index would look to Alice. 
 ![index_alice](index_alice.png)
 
 Admin users should want to manage all the existing articles in database.
-Here is what admins see in their index page. They can do whatever they want to anyone's article.
+
+Here is what admins see in their index page. They can do whatever they want on anyone's article.
 
 ![index_admin](index_admin.png)
 
@@ -81,7 +87,7 @@ So you better not write anything sensitive here!
 
 
 ### Write an article & comment on articles
-
+- TBD
 
 
 ## Special notes (アピールポイント)
