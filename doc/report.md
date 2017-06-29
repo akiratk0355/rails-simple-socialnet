@@ -49,7 +49,7 @@ The database consists of 3 tables: `users`, `articles`, `comments`.
 ```
 create role admin with createdb login password 'boobooboo';
 ```
-- `rake db:setup` to initialize database with 4 users: `admin@example.com`, `alice@example.com`, `bob@example.com`, `charlie@example.com`
+- Run `rake db:setup` to initialize database with 4 users: `admin@example.com`, `alice@example.com`, `bob@example.com`, `charlie@example.com`
 
 ### Deploy
 - `master` branch automatically gets deployed to Heroku 
@@ -58,14 +58,46 @@ create role admin with createdb login password 'boobooboo';
 - Demo app is available [here](https://shrouded-stream-48188.herokuapp.comhttps://shrouded-stream-48188.herokuapp.com)
 
 
-
-
-
 ## Use case
-- TBD
+### 
 
-## Special notes
-- TBD
+
+## Special notes (アピールポイント)
+Thanks to CanCanCan gem, to make the social networking website somewhat secure, 
+I managed to specify the reasonable permission to the resources in detail. 
+The following `models/ability.rb` defines it. 
+See the comments to know which line corresponds to the certain access control.
+```ruby
+class Ability
+  include CanCan::Ability
+
+  def initialize(user)
+    # Define abilities for the passed in user here.
+    # See the CanCanCan's wiki for syntax details:
+    # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
+    
+    user ||= User.new # guest user (not logged in)
+    
+    # admin user can operate anything
+    if user.can_admin?
+      can :manage, :all
+    else
+      can :manage, Article, :user_id => user.id
+      # anyone should be able to read published articles
+      can :read, Article, :published => true
+      # anyone should be able to create new articles
+      can :create, Article
+      
+      can :manage, Comment, :user_id => user.id
+      # anyone should be able to read comments of & comment on published articles
+      can [:read, :create], Comment, :article => { :published => true }
+      # the article's author should be able to delete comments as they wish
+      can :destroy, Comment, :article => { :user_id => user.id }
+    end
+    
+  end
+end
+```
 
 ## Wrap-up
 - TBD
