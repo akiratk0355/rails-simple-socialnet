@@ -68,7 +68,7 @@ create database socialnet_dev owner socialnet_dev;
 ## Use case
 ### Indexing available articles
 If Bob wants to read new articles, he can go to the index page. 
-List view automatically sorts the articles by their published dates and display how many articles have been published today and in total.
+List view automatically sorts the articles by their published dates and displays how many articles have been published today and in total.
 
 Also note that `Edit` and `Delete` buttons are only displayed for Bob's own articles.
 ![index_bob](doc/index_bob.png)
