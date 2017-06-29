@@ -37,6 +37,7 @@ Unlike common social networking websites, this app does not support following fe
 
 ### Database
 The database consists of 3 tables: `users`, `articles`, `comments`. 
+![ERD](erd.png)
 
 ### Dependencies
 - Should run in Ubuntu Xenial
