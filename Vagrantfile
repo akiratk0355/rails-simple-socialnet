@@ -54,7 +54,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provider "lxc" do |vb|
-    config.vm.box = "rvanlaar/xenial64-lxc"
+    config.vm.box = "arjenvrielink/xenial64-lxc"
   end
 
   # Provisioning
