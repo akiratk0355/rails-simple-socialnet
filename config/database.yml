@@ -7,11 +7,11 @@ default: &default
 
 development:
   <<: *default
-  username: admin
+  username: socialnet_dev
   host: localhost
   encoding: unicode
   password: 'boobooboo'
-  database: testapp_dev
+  database: socialnet_dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -20,4 +20,4 @@ test:
 
 production:
   <<: *default
-  database: testapp_prod
+  database: socialnet_prod
