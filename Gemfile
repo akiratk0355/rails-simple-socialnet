@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'figaro', '~> 1.1.1'
 gem 'devise', '~> 4.3.0'
 gem 'cancancan', '~> 1.15.0'
+gem 'yaml_db'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.8'
 # Use SCSS for stylesheets
