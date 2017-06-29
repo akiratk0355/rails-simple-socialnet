@@ -14,7 +14,7 @@ Akira Takahashi (takahashi.akira.58s@st.kyoto-u.ac.jp)
 ## Overview
 ### What is this?
 - The repository is dedicated for "Practice of Information Systems" course at the Kyoto University.
-- We are supposed to design and implement a basic Web app with Ruby on Rails. I created a simple social networking
+- We are supposed to design and implement a basic Web app with Ruby on Rails. I created a simple social networking website.
 - Based on the official [Getting Started with Rails guide](http://edgeguides.rubyonrails.org/getting_started.html), but many additional features are implemented, e.g., association between user and articles/comments, proper authentication and session management with [Devise](https://github.com/plataformatec/devise), resource control with [CanCanCan](https://github.com/CanCanCommunity/cancancan), etc.
 
 ### Basic features
