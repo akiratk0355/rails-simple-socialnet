@@ -1,70 +1,69 @@
-MAL_PROJECT_DIR ?= $(TOP)
+SSN_PROJECT_DIR ?= $(TOP)
 
-ALL_TARGETS += MAL_all
-CLEAN_TARGETS += MAL_clean
+ALL_TARGETS += SSN_all
+CLEAN_TARGETS += SSN_clean
 
-SYSPKG_APT_INST_FILES += $(wildcard $(MAL_PROJECT_DIR)/syspkg/*.aptinst)
+SYSPKG_APT_INST_FILES += $(wildcard $(SSN_PROJECT_DIR)/syspkg/*.aptinst)
 
-MAL_STAMP := $(MAL_PROJECT_DIR)/rails-testapp.stamp
+SSN_STAMP := $(SSN_PROJECT_DIR)/rails-simple-socialnet.stamp
 
 
 # rbenv build definitions
-MAL_RBENV_PATH := $(MAL_PROJECT_DIR)/rbenv
-MAL_RBENV_BIN := $(MAL_RBENV_PATH)/bin/rbenv
-MAL_RBENV_SRC := $(MAL_PROJECT_DIR)/tools/rbenv.tar
+SSN_RBENV_PATH := $(SSN_PROJECT_DIR)/rbenv
+SSN_RBENV_BIN := $(SSN_RBENV_PATH)/bin/rbenv
+SSN_RBENV_SRC := $(SSN_PROJECT_DIR)/tools/rbenv.tar
 
-MAL_RUBY_VERSION = ruby-2.2.6
-MAL_RUBY_PKG := $(MAL_RUBY_VERSION).tar.gz
-MAL_RUBY_URL := http://cache.ruby-lang.org/pub/ruby/2.2/$(MAL_RUBY_PKG)
+SSN_RUBY_VERSION = ruby-2.2.6
+SSN_RUBY_PKG := $(SSN_RUBY_VERSION).tar.gz
+SSN_RUBY_URL := http://cache.ruby-lang.org/pub/ruby/2.2/$(SSN_RUBY_PKG)
 
-MAL_RUBY_PKG_PATH := $(MAL_RBENV_PATH)/$(MAL_RUBY_PKG)
-MAL_RUBY_SRC_PATH := $(MAL_RBENV_PATH)/$(MAL_RUBY_VERSION)
-MAL_RUBY_DST_PATH := $(MAL_RBENV_PATH)/versions/$(MAL_RUBY_VERSION)
-MAL_RUBY_BIN := $(MAL_RUBY_DST_PATH)/bin/ruby
+SSN_RUBY_PKG_PATH := $(SSN_RBENV_PATH)/$(SSN_RUBY_PKG)
+SSN_RUBY_SRC_PATH := $(SSN_RBENV_PATH)/$(SSN_RUBY_VERSION)
+SSN_RUBY_DST_PATH := $(SSN_RBENV_PATH)/versions/$(SSN_RUBY_VERSION)
+SSN_RUBY_BIN := $(SSN_RUBY_DST_PATH)/bin/ruby
 
-MAL_GEM_STAMP := $(MAL_PROJECT_DIR)/Gemfile.lock
+SSN_GEM_STAMP := $(SSN_PROJECT_DIR)/Gemfile.lock
 
 #
 # Main targets
 #
 
-.PHONY: MAL_all MAL_clean
+.PHONY: SSN_all SSN_clean
 
-MAL_all: $(MAL_STAMP) ;
+SSN_all: $(SSN_STAMP) ;
 
-MAL_clean:
-	rm -fr $(MAL_STAMP) $(MAL_RBENV_PATH) $(MAL_GEM_STAMP)
+SSN_clean:
+	rm -fr $(SSN_STAMP) $(SSN_RBENV_PATH) $(SSN_GEM_STAMP)
 
 
-$(MAL_RUBY_PKG_PATH):
-ifdef MAL_RBENV_ROOT
-	mkdir -p $(MAL_RBENV_ROOT) || true
-	tar -C $(MAL_RBENV_ROOT) -xf $(MAL_RBENV_SRC)
-	rm -fr $(MAL_RBENV_PATH)
-	ln -s $(MAL_RBENV_ROOT)/rbenv $(MAL_RBENV_PATH)
+$(SSN_RUBY_PKG_PATH):
+ifdef SSN_RBENV_ROOT
+	mkdir -p $(SSN_RBENV_ROOT) || true
+	tar -C $(SSN_RBENV_ROOT) -xf $(SSN_RBENV_SRC)
+	rm -fr $(SSN_RBENV_PATH)
+	ln -s $(SSN_RBENV_ROOT)/rbenv $(SSN_RBENV_PATH)
 else
-	tar -C $(MAL_PROJECT_DIR) -xf $(MAL_RBENV_SRC)
+	tar -C $(SSN_PROJECT_DIR) -xf $(SSN_RBENV_SRC)
 endif
-	curl -z $(MAL_RUBY_PKG_PATH) -o $(MAL_RUBY_PKG_PATH) $(MAL_RUBY_URL)
+	curl -z $(SSN_RUBY_PKG_PATH) -o $(SSN_RUBY_PKG_PATH) $(SSN_RUBY_URL)
 
-$(MAL_RUBY_SRC_PATH): $(MAL_RUBY_PKG_PATH)
-	( cd $(MAL_RBENV_PATH) && tar -xzf $(MAL_RUBY_PKG) )
+$(SSN_RUBY_SRC_PATH): $(SSN_RUBY_PKG_PATH)
+	( cd $(SSN_RBENV_PATH) && tar -xzf $(SSN_RUBY_PKG) )
 
-$(MAL_RUBY_BIN): $(MAL_RUBY_PKG_PATH) | $(MAL_RUBY_SRC_PATH)
-	( cd $(MAL_RUBY_SRC_PATH) && \
-	  ./configure --prefix=$(abspath $(MAL_RUBY_DST_PATH)) $(MAL_CONFIGURE_FLAGS) && \
+$(SSN_RUBY_BIN): $(SSN_RUBY_PKG_PATH) | $(SSN_RUBY_SRC_PATH)
+	( cd $(SSN_RUBY_SRC_PATH) && \
+	  ./configure --prefix=$(abspath $(SSN_RUBY_DST_PATH)) $(SSN_CONFIGURE_FLAGS) && \
 	  $(MAKE) install )
-	RBENV_ROOT=$(abspath $(MAL_RBENV_PATH)) $(MAL_RBENV_BIN) global $(MAL_RUBY_VERSION)
+	RBENV_ROOT=$(abspath $(SSN_RBENV_PATH)) $(SSN_RBENV_BIN) global $(SSN_RUBY_VERSION)
 
-MAL_RUBY_SRCS = $(wildcard $(MAL_PROJECT_DIR)/dummy/*.rb) \
+SSN_RUBY_SRCS = $(wildcard $(SSN_PROJECT_DIR)/dummy/*.rb) \
 
-$(MAL_RUBY_DST_PATH)/bin/bundler: $(MAL_RUBY_BIN)
-	RBENV_ROOT=$(abspath $(MAL_RBENV_PATH)) $(MAL_RBENV_BIN) exec gem install bundler
+$(SSN_RUBY_DST_PATH)/bin/bundler: $(SSN_RUBY_BIN)
+	RBENV_ROOT=$(abspath $(SSN_RBENV_PATH)) $(SSN_RBENV_BIN) exec gem install bundler
 	
-$(MAL_GEM_STAMP): $(MAL_RUBY_BIN) $(MAL_PROJECT_DIR)/Gemfile $(MAL_RUBY_DST_PATH)/bin/bundler
-	( cd $(MAL_PROJECT_DIR) && RBENV_ROOT=$(abspath $(MAL_RBENV_PATH)) $(abspath $(MAL_RBENV_BIN)) exec bundle update )
+$(SSN_GEM_STAMP): $(SSN_RUBY_BIN) $(SSN_PROJECT_DIR)/Gemfile $(SSN_RUBY_DST_PATH)/bin/bundler
+	( cd $(SSN_PROJECT_DIR) && RBENV_ROOT=$(abspath $(SSN_RBENV_PATH)) $(abspath $(SSN_RBENV_BIN)) exec bundle update )
 	@touch $@
 	
-$(MAL_STAMP): $(MAL_RUBY_BIN) $(MAL_GEM_STAMP) $(MAL_RUBY_SRCS)
+$(SSN_STAMP): $(SSN_RUBY_BIN) $(SSN_GEM_STAMP) $(SSN_RUBY_SRCS)
 	@touch $@
-
