@@ -40,11 +40,16 @@ The database consists of 3 tables: `users`, `articles`, `comments`.
 ![ERD](erd.png)
 
 ### Dependencies
-- Should run in Ubuntu Xenial
-- Ruby (2.2.6), Rails (4.2), devise, cancancan, figaro
+- Running in Ubuntu Xenial with rbenv is strongly recommended (I didn't test in OSX at all)
+- Ruby (2.2.6), Rails (4.2), PostgreSQL (9.6)
 
-### Build
+### Set up development environment
 - Run `make` in the project root
+- Run the following command in `psql`:
+```
+create role admin with createdb login password 'boobooboo';
+```
+- `rake db:setup` to initialize database with 4 users: `admin@example.com`, `alice@example.com`, `bob@example.com`, `charlie@example.com`
 
 ### Deploy
 - `master` branch automatically gets deployed to Heroku 
