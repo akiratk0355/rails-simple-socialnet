@@ -1,0 +1,241 @@
+
+---
+articles:
+  columns:
+  - id
+  - title
+  - text
+  - created_at
+  - updated_at
+  - user_id
+  - published
+  - published_at
+  records: 
+  - - '1'
+    - Confess
+    - Confess with your mouth. Jesus is the lord.
+    - '2017-06-20 08:23:10.70594'
+    - '2017-06-28 17:26:42.674603'
+    - '1'
+    - true
+    - '2017-06-28 17:26:42.674361'
+  - - '9'
+    - I'm a winner
+    - 'Believe or not, I won it. '
+    - '2017-06-28 09:01:42.291661'
+    - '2017-06-28 09:01:42.291661'
+    - '2'
+    - false
+    - 
+  - - '10'
+    - I'm Alice
+    - The was me. I'm Alice.
+    - '2017-06-28 12:11:51.436871'
+    - '2017-06-28 17:49:34.360513'
+    - '1'
+    - true
+    - '2017-06-28 17:49:34.360184'
+  - - '13'
+    - Believe in your heart
+    - God raised him from the dead
+    - '2017-06-28 15:42:01.462102'
+    - '2017-06-28 15:42:01.462102'
+    - '1'
+    - false
+    - 
+  - - '14'
+    - Alice's new post
+    - yeaaaa
+    - '2017-06-28 16:53:42.076981'
+    - '2017-06-28 16:53:42.076981'
+    - '1'
+    - false
+    - 
+  - - '16'
+    - Bob's first post
+    - Hi there
+    - '2017-06-28 18:13:26.862949'
+    - '2017-06-28 18:45:25.322728'
+    - '3'
+    - true
+    - '2017-06-28 18:45:25.322521'
+  - - '17'
+    - This is my new one
+    - "Finally I am writing this! \r\nblah blah"
+    - '2017-06-28 19:10:09.735598'
+    - '2017-06-28 19:10:29.869769'
+    - '1'
+    - true
+    - '2017-06-28 19:10:29.869526'
+  - - '19'
+    - Ain't nobody got time for that?
+    - I woke up to get me a cold pop.
+    - '2017-06-29 01:54:33.251698'
+    - '2017-06-29 01:54:33.251698'
+    - '3'
+    - true
+    - '2017-06-29 01:54:33.25153'
+  - - '20'
+    - Message from Admin
+    - Very important. Carefully read please...
+    - '2017-06-29 04:35:51.096039'
+    - '2017-06-29 04:35:51.096039'
+    - '2'
+    - true
+    - '2017-06-29 04:35:51.095869'
+  - - '21'
+    - Charlie's hidden article
+    - Just a private matter. I'm so embarrassed to make this public!
+    - '2017-06-29 05:13:43.265336'
+    - '2017-06-29 05:13:43.265336'
+    - '4'
+    - false
+    - 
+
+---
+comments:
+  columns:
+  - id
+  - body
+  - article_id
+  - created_at
+  - updated_at
+  - user_id
+  records: 
+  - - '2'
+    - God bless you.
+    - '1'
+    - '2017-06-27 17:18:20.250412'
+    - '2017-06-28 18:40:42.018627'
+    - '1'
+  - - '3'
+    - "God loves you\r\n"
+    - '1'
+    - '2017-06-27 17:22:24.91503'
+    - '2017-06-28 18:41:09.925591'
+    - '3'
+  - - '11'
+    - da
+    - '16'
+    - '2017-06-28 18:43:36.155525'
+    - '2017-06-28 18:43:36.155525'
+    - '3'
+  - - '12'
+    - Hello. I'm happy to know you.
+    - '16'
+    - '2017-06-28 18:51:58.878432'
+    - '2017-06-28 18:51:58.878432'
+    - '1'
+  - - '15'
+    - Any comment is welcome
+    - '17'
+    - '2017-06-28 19:10:51.756257'
+    - '2017-06-28 19:10:51.756257'
+    - '1'
+  - - '16'
+    - Well this wasn't very good....
+    - '17'
+    - '2017-06-28 19:12:04.664557'
+    - '2017-06-28 19:12:04.664557'
+    - '3'
+  - - '17'
+    - That's sad
+    - '17'
+    - '2017-06-28 19:12:18.498903'
+    - '2017-06-28 19:12:18.498903'
+    - '1'
+
+---
+users:
+  columns:
+  - id
+  - name
+  - created_at
+  - updated_at
+  - email
+  - encrypted_password
+  - reset_password_token
+  - reset_password_sent_at
+  - remember_created_at
+  - sign_in_count
+  - current_sign_in_at
+  - last_sign_in_at
+  - current_sign_in_ip
+  - last_sign_in_ip
+  - role
+  records: 
+  - - '1'
+    - Alice
+    - '2017-06-09 10:49:48.278128'
+    - '2017-06-29 04:36:15.89582'
+    - alice@example.com
+    - "$2a$11$F3SCqBSOH5lW/af5S.uVn.clkyglaTzNnb.e5x1ouMnnqTGv1pMzS"
+    - 
+    - 
+    - 
+    - '25'
+    - '2017-06-29 04:36:15.894893'
+    - '2017-06-29 02:26:18.006149'
+    - 127.0.0.1
+    - 127.0.0.1
+    - user
+  - - '2'
+    - ADMIN
+    - '2017-06-27 19:00:27.926907'
+    - '2017-06-29 05:15:59.43559'
+    - admin@example.com
+    - "$2a$11$Zk42OtiHm.Tz2HQ2IK7IcevrFKhYm7YxFRUj2af.4r2VENgrTSaqq"
+    - 
+    - 
+    - 
+    - '22'
+    - '2017-06-29 05:15:59.434608'
+    - '2017-06-29 05:14:07.650125'
+    - 127.0.0.1
+    - 127.0.0.1
+    - admin
+  - - '3'
+    - Bob
+    - '2017-06-28 18:00:33.905083'
+    - '2017-06-28 18:12:49.062581'
+    - bob@example.com
+    - "$2a$11$G1jGtP.zYNsoJVLUyIERQ.qHHDk1W0iZ08ITXs3QCbBYHGQ11KzO2"
+    - 
+    - 
+    - 
+    - '1'
+    - '2017-06-28 18:12:49.06162'
+    - '2017-06-28 18:12:49.06162'
+    - 127.0.0.1
+    - 127.0.0.1
+    - user
+  - - '4'
+    - Charlie
+    - '2017-06-28 18:00:34.045314'
+    - '2017-06-29 05:15:43.675948'
+    - charlie@example.com
+    - "$2a$11$cxRZPwG3Z5DXbF59RgaUzOu7X4x/G7u.UMj1xufXFcRRsIQkSn8MS"
+    - 066bda2dd6d81c836f3fb5c43a26df527b64a01a365ae4e8c04ba69068f8c994
+    - '2017-06-29 02:25:15.211004'
+    - 
+    - '3'
+    - '2017-06-29 05:15:43.674388'
+    - '2017-06-29 05:12:42.555431'
+    - 127.0.0.1
+    - 127.0.0.1
+    - user
+  - - '5'
+    - 
+    - '2017-06-29 02:06:50.609774'
+    - '2017-06-29 02:07:36.779652'
+    - ak.sm0poxid12ed@gmail.com
+    - "$2a$11$eNgnJ8UkRQxZxLV8Zi36Reqr6XYMlJ6qwk2BcOMWTm0RTTAZ114q2"
+    - 
+    - 
+    - 
+    - '2'
+    - '2017-06-29 02:07:36.777919'
+    - '2017-06-29 02:06:50.682507'
+    - "::1"
+    - "::1"
+    - user
