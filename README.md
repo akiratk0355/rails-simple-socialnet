@@ -52,7 +52,10 @@ create role socialnet_dev with createdb login password 'boobooboo';
 create database socialnet_dev owner socialnet_dev;
 ```
 
-- Run `PGPASSWORD='boobooboo' pg_restore -v -U socialnet_dev -d socialnet_dev db/dbbackup.tar` to import sample records
+- Run `PGPASSWORD='boobooboo' pg_restore -v -U socialnet_dev -d socialnet_dev db/seeds.tar` to import sample records
+  - available users: `admin@example.com`, `alice@example.com`, `bob@example.com`, `charlie@example.com`
+  - password: `boobooboo` for all
+  
 - Finally, `rails s`
 
 ### Deploy
