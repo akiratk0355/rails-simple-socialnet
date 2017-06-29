@@ -38,7 +38,7 @@ Unlike common social networking websites, this app does not support following fe
 
 ### Database
 The database consists of 3 tables: `users`, `articles`, `comments`. 
-![ERD](erd.png)
+![ERD](doc/erd.png)
 
 ### Dependencies
 - Running in Ubuntu Xenial with rbenv is strongly recommended (I didn't test in OSX at all)
@@ -68,22 +68,22 @@ If Bob wants to read new articles, he can go to the index page.
 List view automatically sorts the articles by their published dates and display how many articles have been published today and in total.
 
 Also note that `Edit` and `Delete` buttons are only displayed for Bob's own articles.
-![index_bob](index_bob.png)
+![index_bob](doc/index_bob.png)
 
 As seen in the screenshot above, Bob can't see Alice's unpublished articles. In fact, Alice has created two unpublished drafts. 
 
 Let's see how the index would look to Alice. 
-![index_alice](index_alice.png)
+![index_alice](doc/index_alice.png)
 
 Admin users should want to manage all the existing articles in database.
 
 Here is what admins see in their index page. They can do whatever they want on anyone's article.
 
-![index_admin](index_admin.png)
+![index_admin](doc/index_admin.png)
 
 It turn out that there exists Charlie's hidden article. Admin can, of course, see what's written there.
 So you better not write anything sensitive here!
-![charlie_hidden](charlie_hidden.png)
+![charlie_hidden](doc/charlie_hidden.png)
 
 
 ### Write an article & comment on articles
