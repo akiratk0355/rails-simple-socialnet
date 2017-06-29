@@ -33,6 +33,7 @@ Akira Takahashi (takahashi.akira.58s@st.kyoto-u.ac.jp)
 Unlike common social networking websites, this app does not support following features:
 - E-mail confirmation in sign up flow
 - password reset request
+- searching with multiple keywords
 - decent UI
 
 ### Database
@@ -59,7 +60,28 @@ create role admin with createdb login password 'boobooboo';
 
 
 ## Use case
-### 
+### Indexing available articles
+If Bob wants to read new articles, he can go to the index page. 
+List view automatically sorts the articles by their published dates and display how many articles have been published today and in total.
+Also note that `Edit` and `Delete` buttons are only displayed for Bob's own articles.
+![index_bob](index_bob.png)
+
+As seen in the screen shot, Bob can't see Alice's unpublished articles. In fact, Alice has two unpublished draft articles in her list view. 
+Let's see how the index would look to Alice. 
+![index_alice](index_alice.png)
+
+Admin users should want to manage all the existing articles in database.
+Here is what admins see in their index page. They can do whatever they want to anyone's article.
+
+![index_admin](index_admin.png)
+
+It turn out that there exists Charlie's hidden article. Admin can, of course, see what's written there.
+So you better not write anything sensitive here!
+![charlie_hidden](charlie_hidden.png)
+
+
+### Write an article & comment on articles
+
 
 
 ## Special notes (アピールポイント)
