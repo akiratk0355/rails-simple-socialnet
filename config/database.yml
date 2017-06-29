@@ -10,7 +10,7 @@ development:
   username: admin
   host: localhost
   encoding: unicode
-  password: <%= ENV['DB_PASSWORD'] %>
+  password: 'boobooboo'
   database: testapp_dev
 
 # Warning: The database defined as "test" will be erased and
