@@ -20,3 +20,5 @@
 /config/application.yml
 
 .vagrant
+*.stamp
+rbenv
