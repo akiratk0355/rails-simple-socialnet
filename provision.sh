@@ -7,7 +7,10 @@ apt-get -y dist-upgrade
 apt-get -y install \
 	build-essential git nodejs npm \
 	libglib2.0-dev graphviz \
-  libcurl4-openssl-dev libssl-dev
+  libcurl4-openssl-dev libssl-dev \
+	git-core curl zlib1g-dev libreadline-dev \
+	libyaml-dev libxml2-dev libxslt1-dev \
+	python-software-properties libffi-dev 
 	
 # Environment fixups
 echo "Environment fixups"
@@ -22,7 +25,7 @@ if [ ! -f "/etc/apt/sources.list.d/postgresql.list" ] ; then
  apt-get update
 fi
 
-apt-get -y install postgresql-9.6
+apt-get -y install postgresql-9.6 libpq-dev
 sed -i.bak '/^local/ s/peer/trust/' /etc/postgresql/9.6/main/pg_hba.conf 
 sed -i.bak -r '/^#?listen_addresses/ { s/^#//; s/localhost/*/ }' /etc/postgresql/9.6/main/postgresql.conf
 pg_ctlcluster 9.6 main restart

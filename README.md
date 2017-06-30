@@ -45,7 +45,7 @@ The database consists of 3 tables: `users`, `articles`, `comments`.
 - Ruby (2.2.6), Rails (4.2.8), PostgreSQL (9.6)
 
 ### Set up development environment
-- Run `make` in the project root
+- Run `vagrant up` in the project root (or `vagrant up --provider=lxc` if your host machine is Linux)
 - Run the following commands in `psql` to create the postgres user/db named `socialnet_dev`:
 ```
 create role socialnet_dev with createdb login password 'boobooboo';
@@ -56,6 +56,12 @@ create database socialnet_dev owner socialnet_dev;
   - available users: `admin@example.com`, `alice@example.com`, `bob@example.com`, `charlie@example.com`
   - password: `boobooboo` for all
   
+- initialize rbenv
+```
+export RBENV_ROOT=/home/vagrant/rbenv
+export PATH=$RBENV_ROOT/bin:$PATH
+eval "$(rbenv init -)"
+```
 - Finally, `rails s`
 
 ### Deploy
