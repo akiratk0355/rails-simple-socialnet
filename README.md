@@ -44,31 +44,27 @@ The database consists of 3 tables: `users`, `articles`, `comments`.
 - Running in Ubuntu Xenial with rbenv is strongly recommended (I didn't test in OSX at all)
 - Ruby (2.2.6), Rails (4.2.8), PostgreSQL (9.6)
 
-### Set up development environment
-- Run `vagrant up` in the project root (or `vagrant up --provider=lxc` if your host machine is Linux)
-- Run the following commands in `psql` to create the postgres user/db named `socialnet_dev`:
-```
-create role socialnet_dev with createdb login password 'boobooboo';
-create database socialnet_dev owner socialnet_dev;
-```
+### Development
+You should follow the steps below to set up the development environment (Note that `Vagrantfile` is different from the one provided in the course).
 
-- Run `PGPASSWORD='boobooboo' pg_restore -v -U socialnet_dev -d socialnet_dev db/seeds.tar` to import sample records
-  - available users: `admin@example.com`, `alice@example.com`, `bob@example.com`, `charlie@example.com`
-  - password: `boobooboo` for all
+1. Run `vagrant up` in the project root (or `vagrant up --provider=lxc` if your host machine is Linux). This will take a while because the provisioning script installs all the dependencies. The project root in vagrant environment will be `/home/vagrant/rails-simple-socialnet`.
+2. `vagrant ssh` to enter the virtual environment
+3. `psql -U postgres` and run the following commands to create the postgres user/db named `socialnet_dev`:
+```
+CREATE ROLE socialnet_dev WITH CREATEDB LOGIN PASSWORD 'boobooboo';
+CREATE DATABASE socialnet_dev OWNER socialnet_dev;
+```
+4. Run `PGPASSWORD='boobooboo' pg_restore -v -U socialnet_dev -d socialnet_dev db/seeds.tar` to import sample records. The following accounts will be initialized.
+  - Users: `admin@example.com`, `alice@example.com`, `bob@example.com`, `charlie@example.com`
+  - Password: `boobooboo` for all
   
-- initialize rbenv
-```
-export RBENV_ROOT=/home/vagrant/rbenv
-export PATH=$RBENV_ROOT/bin:$PATH
-eval "$(rbenv init -)"
-```
-- Finally, `rails s`
+5. Finally, `rails s` and go to `localhost:8080` from the host. If everything is properly set up, you'll see the login form.
 
 ### Deploy
 - `master` branch automatically gets deployed to Heroku 
 
 ### Demo
-- Demo app is available [here](https://shrouded-stream-48188.herokuapp.comhttps://shrouded-stream-48188.herokuapp.com)
+- Demo app is available [here](https://shrouded-stream-48188.herokuapp.com)
 
 
 ## Use case
