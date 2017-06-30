@@ -4,7 +4,7 @@
     <th></th>
     <th></th>
   </tr>
-  <td><%= comment.user.name %>: </td>
+  <td><strong><%= comment.user.name %></strong>: </td>
   <td><%= comment.body %> </td>
   <td>
     <% if can? :destroy, comment %>
