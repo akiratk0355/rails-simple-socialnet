@@ -7,8 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to 'Home', root_path %> | <%= user_html_string(current_user).html_safe %>
-
+  <nav class="navbar navbar-toggleable-sm navbar-fixed-top navbar-inverse bg-inverse main-nav">
+      <div class="container">
+          <ul class="nav navbar-nav">
+              <li class="nav-item active">
+                  <%= link_to 'Home', root_path, class: 'nav-link' %>
+              </li>
+          </ul>
+          <ul class="nav navbar-nav mx-auto">
+              <li class="nav-item">
+                <%= link_to 'Simple Socialnet', root_path, class: 'nav-link' %>
+              </li>
+          </ul>
+          <ul class="nav navbar-nav">
+              <li class="nav-item">
+                  <%= user_html_string(current_user).html_safe %>
+              </li>
+          </ul>
+      </div>
+  </nav>
 <%= yield %>
 <% if user_signed_in? %>
   <li>

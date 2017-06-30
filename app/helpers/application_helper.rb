@@ -7,7 +7,7 @@ module ApplicationHelper
       if user.can_admin?
         super_string = " &mdash; <b style='color: red'>Superuser</b>"
       end
-      "#{user.name} (#{user.email})" + super_string
+      "<b style='color: white'> #{user.name} (#{user.email}) </b> " + super_string
     end
   end
 end
