@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  
-  load_and_authorize_resource
+  load_and_authorize_resource :article
+  load_and_authorize_resource :comment, :through => :article
   
   def create
     @article = Article.find(params[:article_id])

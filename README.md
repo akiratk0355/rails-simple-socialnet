@@ -121,11 +121,15 @@ class Ability
       # anyone should be able to create new articles
       can :create, Article
       
-      can :manage, Comment, :user_id => user.id
       # anyone should be able to read comments of & comment on published articles
       can [:read, :create], Comment, :article => { :published => true }
-      # the article's author should be able to delete comments as they wish
-      can :destroy, Comment, :article => { :user_id => user.id }
+      # the article's authors should be able to delete comments as they wish
+      # also they can read comments on their own article even in unpublished state
+      can [:read, :destroy], Comment, :article => { :user_id => user.id }
+      # the commenter should be able to delete own comments as long as the article is published
+      can :destroy, Comment, { :user_id => user.id, :article => { :published => true } }
+      
+      # also note that no one can't modify the existing comments (except admin)
     end
     
   end
