@@ -59,6 +59,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # Provisioning
-  #config.vm.provision "shell", path: "provision.sh", privileged: true
+  config.vm.provision "shell", path: "provision.sh", privileged: true
+  config.vm.provision "file", source: "tools/.bashrc", destination: ".bashrc"
   config.vm.provision "file", source: "~/.gitconfig", destination: ".gitconfig"
 end
