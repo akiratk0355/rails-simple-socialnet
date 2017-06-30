@@ -3,8 +3,6 @@ SSN_PROJECT_DIR ?= $(TOP)
 ALL_TARGETS += SSN_all
 CLEAN_TARGETS += SSN_clean
 
-SYSPKG_APT_INST_FILES += $(wildcard $(SSN_PROJECT_DIR)/syspkg/*.aptinst)
-
 SSN_STAMP := $(SSN_PROJECT_DIR)/rails-simple-socialnet.stamp
 
 
