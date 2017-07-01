@@ -5,9 +5,9 @@ module ApplicationHelper
     else
       super_string = ""
       if user.can_admin?
-        super_string = " &mdash; <b style='color: red'>Superuser</b>"
+        super_string = "<span class=\"navbar-text\" style='color: red'>Superuser</span>"
       end
-      "<b style='color: white'> #{user.name} (#{user.email}) </b> " + super_string
+      "<span class=\"navbar-text\"> #{user.name} (#{user.email}) &mdash; </span>" + super_string
     end
   end
 end
