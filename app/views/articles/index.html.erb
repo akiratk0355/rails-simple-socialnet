@@ -12,15 +12,19 @@
   <%= submit_tag "Search" %>
 <% end %>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Author</th>
-    <th>Published</th>
-    <th>Comments</th>
-    <th colspan="2"></th>
-  </tr>
-
+<table class="table table-striped">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Published</th>
+      <th>Comments</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
   <% @articles.each do |article| %>
     <tr>
       <td><%= article.title %></td>
@@ -42,6 +46,7 @@
       </td>
     </tr>
   <% end %>
+  </tbody>
 </table>
 
 <%= link_to 'Create a new article', new_article_path %>
