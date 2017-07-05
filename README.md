@@ -1,7 +1,7 @@
 # Practice of Information Systems (2017)  <br> Web Information System Design 
 
 <p style="text-align: right;">
-2017/06/29
+2017/07/06
 <br>
 Okamoto Lab. Information Security Adjunct Unit
 <br>
@@ -13,7 +13,7 @@ Akira Takahashi (takahashi.akira.58s@st.kyoto-u.ac.jp)
 ----
 ## Overview
 ### What is this?
-- The repository is dedicated for "Practice of Information Systems" course at the Kyoto University.
+- The repository is dedicated to "Practice of Information Systems" course at the Kyoto University.
 - We are supposed to design and implement a basic Web app with Ruby on Rails. I created a simple social networking website.
 - Based on the official [Getting Started with Rails guide](http://edgeguides.rubyonrails.org/getting_started.html), but many additional features are implemented, e.g., association between user and articles/comments, proper authentication and session management with [Devise](https://github.com/plataformatec/devise), resource control with [CanCanCan](https://github.com/CanCanCommunity/cancancan), etc.
 
@@ -27,13 +27,14 @@ Akira Takahashi (takahashi.akira.58s@st.kyoto-u.ac.jp)
 - user can delete their comments and comments on their own article (i.e., _D_ )
 - display the total number of articles and "published today" articles which are visible to the current user
 - special user role, `admin`, can manage any resource
+- Navbar and striped rows powered by Bootstrap
 - deployable to Heroku
 
 ### Limitations
 Unlike common social networking websites, this app does not support following features:
 - E-mail confirmation in sign up flow
 - password reset request
-- searching with multiple keywords
+- searching by multiple keywords
 - decent UI
 
 ### Database
