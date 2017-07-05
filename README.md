@@ -133,11 +133,12 @@ he can delete it as he wishes.
 
 
 
-## Special notes (アピールポイント)
-Thanks to CanCanCan gem, to make the social networking website somewhat secure, 
-I managed to specify the reasonable permission to the resources in detail. 
-The following `models/ability.rb` defines it. 
-See the comments to know which line corresponds to the certain access control.
+## Notes (アピールポイント)
+Thanks to CanCanCan gem, by specifying the reasonable permission to the resources in detail, 
+I managed to make the social networking website somewhat secure.
+
+See the following `models/ability.rb` and comments to check which line corresponds to the certain access control.
+
 ```ruby
 class Ability
   include CanCan::Ability
