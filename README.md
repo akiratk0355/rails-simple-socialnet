@@ -18,24 +18,28 @@ Akira Takahashi (takahashi.akira.58s@st.kyoto-u.ac.jp)
 - Based on the official [Getting Started with Rails guide](http://edgeguides.rubyonrails.org/getting_started.html), but many additional features are implemented, e.g., association between user and articles/comments, proper authentication and session management with [Devise](https://github.com/plataformatec/devise), resource control with [CanCanCan](https://github.com/CanCanCommunity/cancancan), etc.
 
 ### Basic features
-- sign up & sign in with E-mail address and password
-- user can search articles by title or text
+All the requirements for the assignment are met.
+
+- **sign up & sign in** with E-mail address and password
+- **new articles list** at the application root
+- user can **search** articles by title or text
 - user can publish & manage article (i.e., _CRUD_ )
 - user can mark their articles as either "published" or "unpublished"
 - user can read other user's published article (i.e., _R_ )
 - user can read & create comments on other user's published articles (i.e., _CR_ )
 - user can delete their comments and comments on their own article (i.e., _D_ )
-- display the total number of articles and "published today" articles which are visible to the current user
+- display **the total number of articles** and **"published today" articles** which are visible to the current use
 - special user role, `admin`, can manage any resource
-- Navbar and striped rows powered by Bootstrap
-- deployable to Heroku
+- Navbar and striped rows powered by **Bootstrap**
+- **validation** of `Article` and `Commnent`
+- deployable to **Heroku**
 
 ### Limitations
 Unlike common social networking websites, this app does not support following features:
 - E-mail confirmation in sign up flow
 - password reset request
-- searching by multiple keywords
-- decent UI
+- search by multiple keywords
+- pagination for the index view
 
 ### Database
 The database consists of 3 tables: `users`, `articles`, `comments`. 
