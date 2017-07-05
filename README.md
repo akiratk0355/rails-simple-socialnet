@@ -72,8 +72,8 @@ CREATE DATABASE socialnet_dev OWNER socialnet_dev;
 - Demo app is available [here](https://shrouded-stream-48188.herokuapp.com)
 
 
-## Use case
-### Indexing available articles
+## Use cases
+### 1. Index available articles
 If Bob wants to read new articles, he can go to the index page. 
 List view automatically sorts the articles by their published dates and displays how many articles have been published today and in total.
 
@@ -96,8 +96,41 @@ So you better not write anything sensitive here!
 ![charlie_hidden](doc/charlie_hidden.png)
 
 
-### Write an article & comment on articles
-- TBD
+### 2. Write an article
+Let's write Bob's second article. Click the "Create a new article" button to jump to the form below.
+
+Submitting an article with a blank title would cause the validation error.
+![article_error](doc/article_error.png)
+
+So let's write some title and random texts. 
+![article_new](doc/article_new.png)
+
+Since it's just a draft, we don't want to publish yet. Just press the "Create Article" button without touching the checkbox. 
+![article_created](doc/article_created.png)
+
+Now we can confirm that Bob's second article is successfully created. Note that the "Published" column is still blank, 
+meaning that the other users (except admin) can't see Bob's new article yet.
+
+Next, we will edit the article to make it look a bit more decent. 
+![artcle_edit](doc/article_edit.png)
+
+Finally, let's press "Update Article" button to publish it. This time we checked the "Published" checkbox.
+![artcle_published](doc/article_published.png)
+
+### 3. Write and delete comments
+Now that Bob's new article is publicly available, Alice can read and comment on it.
+![comment_alice](doc/comment_alice.png)
+
+Of course, Bob can reply to the comment.
+![comment_bob](doc/comment_bob.png)
+
+Now Charlie wrote a negative comment. Note that Charlie has no permission to delete other user's comments.
+![comment_charlie](doc/comment_charlie.png)
+
+Since Bob didn't like Charlie's comment and he is the owner of this article, 
+he can delete it as he wishes.
+![comment_delete](doc/comment_delete.png)
+
 
 
 ## Special notes (アピールポイント)
