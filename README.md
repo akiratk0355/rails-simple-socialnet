@@ -176,4 +176,6 @@ end
 ```
 
 ## Wrap-up
-- TBD
+Although I have experience of developing Rails app, my focus has been mostly back-end part and 
+I don't have much knowledge of front-end development.
+This assignment was a good opportunity to go through the basics of MVC pattern. 
