@@ -28,8 +28,8 @@ All the requirements for the assignment are met.
 - user can read other user's published article (i.e., _R_ )
 - user can read & create comments on other user's published articles (i.e., _CR_ )
 - user can delete their comments and comments on their own article (i.e., _D_ )
-- display **the total number of articles** and **"published today" articles** which are visible to the current use
 - special user role, `admin`, can manage any resource
+- display **the total number of articles** and **"published today" articles** which are visible to the current user
 - Navbar and striped rows powered by **Bootstrap**
 - **validation** of `Article` and `Commnent`
 - deployable to **Heroku**
